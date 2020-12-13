@@ -103,6 +103,7 @@ export const loginUser = async (req, res , next) => {
 //delete User
 //delete only when user is authenticated
 // @ts-ignore
+// @ts-ignore
 export const deleteUserById = async (req, res, next) => {
     try {
          const user = await Buyer.findById(req.params.id);
@@ -126,6 +127,7 @@ export const deleteUserById = async (req, res, next) => {
 }
 
 //get user Profile
+// @ts-ignore
 // @ts-ignore
 export const userProfile = async (req , res , next) => { 
    try {
@@ -152,6 +154,7 @@ export const userProfile = async (req , res , next) => {
 //get userByID
 //@ts-ignore
 // @ts-ignore
+// @ts-ignore
 export const getUserById = async (req, res , next) => {
     try {
         const user = await Buyer.findById(req.params.id).select('-password');
@@ -174,26 +177,42 @@ export const getUserById = async (req, res , next) => {
 
 //update user data
 // @ts-ignore
+// @ts-ignore
 export const updateBuyerProfile = async (req, res , next) => {
     try {
         const user = await Buyer.findById(req.user);
 
         if(!user) {
             // throw new Error('no user found');
-            error.message = 'No User Found';
+        error.message = 'No User Found';
         error.name = 'Update Profile Error';
         return res.status(404).json(error);
         }
+
+        const tempAddress = {}
 
         if (user) {
             // @ts-ignore
             user.name = req.body.name || user.name
             // @ts-ignore
             user.email = req.body.email || user.email
+
+            tempAddress.pincode = req.body.pincode
+
+            tempAddress.street = req.body.street
+
+            tempAddress.landmark = req.body.landmark
+
+            // @ts-ignore
+            user.mobile = req.body.mobile || user.mobile
+
             if (req.body.password) {
               // @ts-ignore
               user.password = req.body.password
             }
+
+            // @ts-ignore
+            user.address.push(tempAddress);
         
             const updatedUser = await user.save()
         
@@ -204,8 +223,14 @@ export const updateBuyerProfile = async (req, res , next) => {
               // @ts-ignore
               email: updatedUser.email,
               // @ts-ignore
+
+              mobile : updatedUser.mobile,
+              // @ts-ignore
               isAdmin: updatedUser.isAdmin,
+              // @ts-ignore
+              address: updatedUser.address,
               token: generateToken(updatedUser._id),
+              
             })
           }
     } catch (err) {
