@@ -21,7 +21,21 @@ const buyerSchema = new mongoose.Schema({
         maxlength: 10,
         unique : true,
     },
-    address:[String],
+    address:[
+        {
+            pincode: {
+                type: String || Number,
+               
+            },
+            street : {
+                type : String
+            },
+            landmark : {
+                type: String,
+               
+            }
+        }
+    ],
 
     isAdmin : {
         type: Boolean,
