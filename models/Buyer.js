@@ -37,6 +37,13 @@ const buyerSchema = new mongoose.Schema({
         }
     ],
 
+    cart: [
+        {
+            type : mongoose.Schema.Types.ObjectId,
+            ref : 'Product'
+        }
+    ],
+
     isAdmin : {
         type: Boolean,
         default : false
