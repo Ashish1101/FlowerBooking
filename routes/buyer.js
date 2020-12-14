@@ -5,7 +5,10 @@ import {
     deleteUserById,
     userProfile,
     getUserById,
-    updateBuyerProfile
+    updateBuyerProfile,
+    addToCard,
+    showCart,
+    removeFromCart
 } from '../controller/buyerController.js'
 
 import {auth} from '../utils/auth.js'
@@ -23,6 +26,9 @@ router.route('/deleteUser/:id').delete(auth , deleteUserById)
 router.route('/profile').get(auth , userProfile);
 router.route('/profile/:id').get(auth , getUserById)
 router.route('/profile/update').put(auth, updateBuyerProfile)
+router.route('/addCart/:id').post(auth , addToCard)
+router.route('/cartItems').get(auth , showCart);
+router.route('/removeItem/:id').post(auth ,removeFromCart)
 
 
 export default router
