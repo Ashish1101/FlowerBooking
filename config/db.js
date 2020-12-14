@@ -9,7 +9,7 @@ const mongoDB = async () => {
           useFindAndModify: true
       })
 
-      console.log(chalk.yellow.bold('connected to database'))
+      console.log(chalk.cyanBright.bold('connected to database'))
   } catch (err) {
       console.log(err)
   }
