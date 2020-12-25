@@ -10,7 +10,7 @@ dotnev.config()
 
 
 
-//current user id lives inside req.user
+//current user id lives inside request user. 
 
 const app = express();
 const PORT = process.env.PORT || 5000;
