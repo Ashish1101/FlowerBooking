@@ -33,9 +33,10 @@ app.use('/seller' , seller)
 app.use('/product', product)
 
 // @ts-ignore
-app.listen(PORT  , () => console.log(chalk.blue('server is running')))
+app.listen(PORT  , () => console.log(chalk.yellow.bold('server is running')))
 
 
 
 
-//ToDo write error message in buyer and product controller
+//ToDo
+//Making Order Model and Controller

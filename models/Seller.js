@@ -20,7 +20,9 @@ const sellerSchema = new mongoose.Schema({
         minlength : 10,
         maxlength: 10
     },
-    address:[String],
+    address: {
+        type : String
+    },
 
     isAdmin : {
         type: Boolean,

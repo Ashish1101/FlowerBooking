@@ -1,10 +1,14 @@
 import React from 'react'
+import {useSelector} from 'react-redux'
 
 const RightLayout = () => {
+  
+    // @ts-ignore
+    const admin = useSelector((state) => state.admin)
     return (
         <div className="flex flex-col mt-2 space-y-12">
             <div className="flex justify-evenly">
-               <h3 className="text-sm text-purple-400">Welcome Shivam</h3>
+               <h3 className="text-sm text-purple-400">{admin.admin.name}</h3>
                <img src={'https://images.pexels.com/users/avatars/5304652/ashish-shakya-224.jpeg?auto=compress&fit=crop&h=256&w=256'} alt="1"  className="rounded-full h-10 w-10 object-cover" />
             </div>
             <div className="">

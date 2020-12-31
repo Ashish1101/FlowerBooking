@@ -6,7 +6,9 @@
   "type": "module",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon -e js app.js"
+    "server": "nodemon -e js app.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server \" \"npm run client\""
   },
   "keywords": [],
   "author": "",
@@ -20,6 +22,7 @@
   },
   "devDependencies": {
     "chalk": "^4.1.0",
+    "concurrently": "^5.3.0",
     "dotenv": "^8.2.0",
     "nodemon": "^2.0.6"
   }

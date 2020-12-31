@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Formik, Form } from "formik";
-import * as Yup from "yup";
+// import * as Yup from "yup";
 import MyTextInput from '../Common/MyTextInput'
 import MyAddress from '../Common/MyAddress'
+import {useDispatch , useSelector} from 'react-redux'
+import {updateAdminData} from '../Store/actions/adminActions'
+import toast from 'react-hot-toast'
 const UpdateForm = () => {
+
+    //@ts-ignore
+    const admin = useSelector((state) => state.admin);
+
+    const dispatch = useDispatch()
+
+    
 
 	return (
 		<div className='text-center space-y-16'>
@@ -11,23 +21,25 @@ const UpdateForm = () => {
 			<div className="container pl-8">
                 <Formik
                 initialValues={{
-                    name:'',
-                    email:'',
-                    mobile:'',
+                    name:admin.admin.name || '',
+                    email:admin.admin.email || '',
+                    mobile:admin.admin.mobile || '',
                     password:'',
-                    address: ''
+                    address:admin?.admin?.address ||  ''
                 }}
-                validationSchema={Yup.object({
-                    name: Yup.string().required('Name is required'),
-                    email: Yup.string().required('Email is required').email('Email not valid'),
-                    password: Yup.string().min(6).required('password is required'),
-                    mobile: Yup.string().min(10).required('Phone number is required'),
-                    address: Yup.string().required('Address is required')
-                })}
+                // validationSchema={Yup.object({
+                //     name: Yup.string().required('Name is required'),
+                //     email: Yup.string().required('Email is required').email('Email not valid'),
+                //     password: Yup.string().min(6).required('password is required'),
+                //     mobile: Yup.string().min(10).required('Phone number is required'),
+                //     address: Yup.string().required('Address is required')
+                // })}
                 onSubmit={(values) => {
-                   alert(
-                       JSON.stringify(values , null , 2)
-                   )
+                //    alert(
+                //        JSON.stringify(values , null , 2)
+                //    )
+                  dispatch(updateAdminData(values))
+                  toast.success('Profile Updated')
                 }}
                 >
                     <Form className="flex flex-wrap">

@@ -100,6 +100,8 @@ export const loginUser = async (req, res , next) => {
 //delete User
 //delete only when user is authenticated
 // @ts-ignore
+// @ts-ignore
+// @ts-ignore
 export const deleteUserById = async (req, res, next) => {
     try {
          const user = await Seller.findById(req.params.id);
@@ -124,11 +126,13 @@ export const deleteUserById = async (req, res, next) => {
 
 //get user Profile
 // @ts-ignore
+// @ts-ignore
+// @ts-ignore
 export const userProfile = async (req , res , next) => { 
    try {
        console.log('req.user' , req.user);
     //    console.log('req.user.id' , req.user.id)
-       const user = await Seller.findById(req.user).select('-password -__v');
+       const user = await Seller.findById(req.user).select('-password -__v ');
 
        if(!user ) {
         //    throw new Error('User not found');
@@ -138,6 +142,7 @@ export const userProfile = async (req , res , next) => {
        }
 
        res.status(200).json(user);
+       next();
    } catch (err) {
        console.log(err)
        error.message = 'Server Error';
@@ -148,6 +153,8 @@ export const userProfile = async (req , res , next) => {
 
 //get userByID
 //@ts-ignore
+// @ts-ignore
+// @ts-ignore
 // @ts-ignore
 export const getUserById = async (req, res , next) => {
     try {
@@ -171,6 +178,8 @@ export const getUserById = async (req, res , next) => {
 
 //update user data
 // @ts-ignore
+// @ts-ignore
+// @ts-ignore
 export const updateSellerProfile = async (req, res , next) => {
     try {
         const user = await Seller.findById(req.user);
@@ -187,10 +196,18 @@ export const updateSellerProfile = async (req, res , next) => {
             user.name = req.body.name || user.name
             // @ts-ignore
             user.email = req.body.email || user.email
+
+            // @ts-ignore
+            user.address = req.body.address || user.address
+
+            // @ts-ignore
+            user.mobile = req.body.mobile || user.mobile
             if (req.body.password) {
               // @ts-ignore
               user.password = req.body.password
             }
+
+            // @ts-ignore
         
             const updatedUser = await user.save()
         
@@ -202,6 +219,12 @@ export const updateSellerProfile = async (req, res , next) => {
               email: updatedUser.email,
               // @ts-ignore
               isAdmin: updatedUser.isAdmin,
+
+              // @ts-ignore
+              address : updatedUser.address,
+
+              // @ts-ignore
+              mobile : updatedUser.mobile,
               token: generateToken(updatedUser._id),
             })
           }

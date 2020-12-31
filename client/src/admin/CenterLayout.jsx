@@ -1,7 +1,9 @@
 import React from 'react'
 import TopProducts from './TopProducts'
 import Analysis from './Analysis'
+import {useSelector} from 'react-redux'
 const CenterLayout = () => {
+    const admin = useSelector((state) => state.admin)
     return (
         <div className="mx-12 flex flex-col space-y-16" >
            <div>
@@ -10,7 +12,7 @@ const CenterLayout = () => {
            <div>
                <TopProducts />
            </div>
-           <div><Analysis /></div>
+           <div><Analysis admin={admin.admin} /></div>
         </div>
     )
 }

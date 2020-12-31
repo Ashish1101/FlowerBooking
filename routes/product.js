@@ -19,5 +19,4 @@ router.route('/updateProduct/:id').put(auth , updateById);
 router.route('/').get(auth , AllProducts)
 router.route('/:id').get(auth , getProductById)
 
-
 export default router;
