@@ -36,7 +36,7 @@ const Dashboard = () => {
     }, [])
 
     return (
-        <div className="container mx-auto rounded-t-3xl bg-gradient-to-r from-purple-400 via-blue-400 to-white rounded-b-3xl my-2 h-screen flex flex-row shadow-2xl">
+        <div className="container mx-auto rounded-t-3xl  rounded-b-3xl my-2 h-screen flex flex-row shadow-2xl ">
             <div className=" w-2/12  flex flex-wrap">
             <div className="pl-4">
             <div className="text-gray-800 ml-8 font-semibold text-opacity-90 text-xl">Flowerify</div>
@@ -86,3 +86,7 @@ const Dashboard = () => {
 }
 
 export default Dashboard
+
+//shadow color
+
+// bg-gradient-to-r from-purple-400 via-blue-400 to-white

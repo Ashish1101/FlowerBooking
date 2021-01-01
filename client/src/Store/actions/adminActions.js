@@ -6,7 +6,7 @@ import {
     CREDENTIALS_FAIL,
     LOGOUT,
     LOADING,
-    UNLOADING
+    UNLOADING,
 } from '../types';
 
 import axios from 'axios'
@@ -109,3 +109,5 @@ export const logoutAdmin = () => async dispatch => {
         })
     }
 }
+
+

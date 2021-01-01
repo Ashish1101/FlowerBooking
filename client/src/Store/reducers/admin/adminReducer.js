@@ -7,7 +7,9 @@ import {
     UPDATE_ADMIN_DATA,
     LOGOUT,
     LOADING,
-    UNLOADING
+    UNLOADING,
+    ADD_PRODUCT,
+    PRODUCT_FAIL
 } from '../../types'
 
 
@@ -16,7 +18,10 @@ const initialState = {
   error: null,
   loading: false,
   admin : null,
-  isUpdated : false
+  isUpdated : false,
+//   isAdded : false,
+//   successMessage : '',
+//   products: []
 }
 
 
@@ -28,7 +33,6 @@ export default (state = initialState , action) => {
              return {
                  ...state,
                  error: null,
-                
                  admin: action.payload
              }
          case LOGIN_ADMIN:
@@ -36,14 +40,12 @@ export default (state = initialState , action) => {
              return {
                  ...state,
                  error: null,
-                
                  admin : action.payload
              }
         case ADMIN_PROFILE:
             return {
                 ...state,
                 error: null,
-                
                 admin : action.payload
             }
         case UPDATE_ADMIN_DATA:
@@ -51,7 +53,6 @@ export default (state = initialState , action) => {
                 ...state,
                 isUpdated : true,
                 error : null,
-               
                 admin : action.payload
 
             }
@@ -82,6 +83,7 @@ export default (state = initialState , action) => {
                 loading: false,
                 admin: null
             }
+       
          default:
              return state
      }

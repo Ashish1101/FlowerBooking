@@ -12,7 +12,7 @@ export const addProduct = async (req , res , next) => {
        // @ts-ignore
        if(!seller && !seller.isAdmin) {
         //    throw new Error('Access Denied!. Not Authorized to add product');
-        error.message = 'Access Denied!. Not Authorized to add product';
+        error.message = 'Access Denied! Not Authorized to add product';
         error.name = 'Product Add Error';
         return res.status(404).json(error);
        } 
