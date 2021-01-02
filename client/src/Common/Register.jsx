@@ -5,20 +5,28 @@ import * as yup from 'yup'
 import {registerAdmin} from '../Store/actions/adminActions'
 import {useDispatch, useSelector} from 'react-redux'
 import toast from 'react-hot-toast'
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 const Register = () => {
     const dispatch = useDispatch();
+    const MySwal = withReactContent(Swal)
     //@ts-ignore
     const admin = useSelector((state) => state.admin)
     console.log(admin.error)
 
     useEffect(() => {
         if(admin.error) {
-           toast.error(admin.error.message)
+        //    toast.error(admin.error.message)
+        MySwal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: admin.error.message,
+          })
         }
         if(admin?.admin?.token) {
             toast.success('Registration successfull')
         }
-    } ,[admin.error , admin?.admin?.token])
+    } ,[admin.error , admin?.admin?.token , MySwal])
     // if(admin.error) {
     //     toast.error(admin.error.message)
     // }

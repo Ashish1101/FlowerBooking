@@ -12,6 +12,7 @@ const Profile = () => {
         if(admin.admin.token) {
             dispatch(adminDetails())
         }
+        //eslint-disable-next-line
     } , [])
 
     return (

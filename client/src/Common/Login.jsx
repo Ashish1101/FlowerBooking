@@ -5,9 +5,12 @@ import * as yup from 'yup'
 import {loginAdmin} from '../Store/actions/adminActions'
 import {useDispatch , useSelector } from 'react-redux'
 import toast from 'react-hot-toast'
-import { Spinner } from 'reactstrap';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
 const Login = () => {
     const dispatch = useDispatch()
+    const MySwal = withReactContent(Swal)
     
     //@ts-ignore
     const admin = useSelector((state) => state.admin)
@@ -15,7 +18,12 @@ const Login = () => {
 
     useEffect(() => {
         if(admin.error) {
-           toast.error(admin.error.message)
+        //    toast.error(admin.error.message)
+        MySwal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: admin.error.message,
+          })
         }
         
     } ,[admin.error])
