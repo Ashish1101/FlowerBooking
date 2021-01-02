@@ -7,6 +7,7 @@ import {
     LOGOUT,
     LOADING,
     UNLOADING,
+    DELETE_ADMIN,
 } from '../types';
 
 import axios from 'axios'
@@ -57,6 +58,9 @@ export const loginAdmin = (data) => async dispatch => {
                 type : LOGIN_ADMIN,
                 payload : res.data
             })
+            dispatch({
+                type : UNLOADING
+            })
         } , 1000)
     } catch (err) {
         dispatch({
@@ -106,6 +110,27 @@ export const logoutAdmin = () => async dispatch => {
     } catch (err) {
         dispatch({
             type: CREDENTIALS_FAIL
+        })
+    }
+}
+
+export const deleteUser = (id) => async dispatch => {
+    try {
+        
+        const res = await axios.delete(`/seller/deleteUser/${id}` , {headers:{'x-auth-token':`${localStorage.getItem('token')}`}});
+   
+
+        //delaying the delete admin call for showing messaage
+        setTimeout(() => {
+            dispatch({
+                type : DELETE_ADMIN,
+                payload : res.data
+            })
+        }, 500)
+    } catch (err) {
+        dispatch({
+            type : CREDENTIALS_FAIL,
+            payload : err.response.data
         })
     }
 }

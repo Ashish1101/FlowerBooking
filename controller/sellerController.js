@@ -114,8 +114,9 @@ export const deleteUserById = async (req, res, next) => {
          }
 
          user.remove();
-
-         res.send('user removed')
+         res.json({
+             successMessage: 'Profile deleted'
+         })
      } catch (err) {
         console.log(err)
         error.message = 'Server Error';

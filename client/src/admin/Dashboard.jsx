@@ -36,7 +36,7 @@ const Dashboard = () => {
     }, [])
 
     return (
-        <div className="container mx-auto rounded-t-3xl  rounded-b-3xl my-2 h-screen flex flex-row shadow-2xl ">
+        <div className="container mx-auto rounded-t-3xl  rounded-b-3xl my-2 h-screen flex flex-row shadow-2xl bg-gradient-to-tl from-flamingo-300 via-cerulean-200 to-blush-300 ">
             <div className=" w-2/12  flex flex-wrap">
             <div className="pl-4">
             <div className="text-gray-800 ml-8 font-semibold text-opacity-90 text-xl">Flowerify</div>

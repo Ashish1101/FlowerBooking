@@ -8,8 +8,7 @@ import {
     LOGOUT,
     LOADING,
     UNLOADING,
-    ADD_PRODUCT,
-    PRODUCT_FAIL
+    DELETE_ADMIN
 } from '../../types'
 
 
@@ -20,7 +19,7 @@ const initialState = {
   admin : null,
   isUpdated : false,
 //   isAdded : false,
-//   successMessage : '',
+  successMessage : '',
 //   products: []
 }
 
@@ -82,6 +81,13 @@ export default (state = initialState , action) => {
                 error: action.payload,
                 loading: false,
                 admin: null
+            }
+        case DELETE_ADMIN:
+            return {
+                admin: null,
+                error: null,
+                
+                successMessage : action.payload
             }
        
          default:

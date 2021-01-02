@@ -7,6 +7,7 @@ export const UPDATE_ADMIN_DATA = "UPDATE_ADMIN_DATA"
 export const LOGOUT = "LOGOUT"
 export const LOADING = "LOADING"
 export const UNLOADING = "UNLOADING"
+export const DELETE_ADMIN = "DELETE_ADMIN"
 
 //buyer
 

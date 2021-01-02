@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import { Formik, Form} from "formik";
 import MyTextInput from "../../Common/MyTextInput";
 import Button from "../../Common/Button";
 import {addProduct} from '../../Store/actions/productAction'
-import {Input} from 'reactstrap'
 import { useDispatch , useSelector} from 'react-redux'
 import toast from "react-hot-toast";
+import MyTextArea from '../../Common/MyTextArea'
 
 
 const AddProduct = () => {
@@ -26,14 +26,14 @@ const AddProduct = () => {
 					initialValues={{
 						productName: "",
 						price: "",
-						info: "",
+						details: '',
 						tags: "",
 						image: "",
 						quantity: "",
 					}}
 					onSubmit={(values) => {
                         alert(JSON.stringify(values, null, 2));
-                        // dispatch(addProduct(values));
+                        dispatch(addProduct(values));
 					}}
 				>
 					<Form className='flex flex-col justify-center w-full md:flex-row flex-wrap '>
@@ -45,13 +45,11 @@ const AddProduct = () => {
 						<MyTextInput name='price' type='text' placeholder='price' />
 						<MyTextInput name='tags' type='text' placeholder='tags' />
 						<MyTextInput name='quantity' type='number' placeholder='quantity' />
-						<Input
-							name='info'
-                            placeholder='enter details'
-                            type="textarea"
-                            className='rounded-lg md:mx-2 focus:outline-none md:w-11/12 mx-auto pl-1 w-48 shadow-md resize'
-							// className="w-full border border-gray-300 rounded-sm px-4 py-3 h-32 outline-none transition-colors duration-150 ease-in-out focus:border-blue-400 resize-none"
-						/>
+						<MyTextArea
+						name="details"
+						placeholder="Enter product details"
+						
+						 />
 						<div className='flex md:w-11/12 mx-auto w-48  md:mx-2 my-4 items-center bg-grey-lighter'>
 							<label className=' md:w-full w-full flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-white'>
 								<svg
@@ -77,3 +75,13 @@ const AddProduct = () => {
 };
 
 export default AddProduct;
+
+
+// eslint-disable-next-line no-lone-blocks
+{/* <input
+							name='details'
+                            placeholder='enter details'
+                            type="text"
+                            className='rounded-lg md:mx-2 focus:outline-none md:w-11/12 mx-auto pl-1 w-48 shadow-md resize'
+							// className="w-full border border-gray-300 rounded-sm px-4 py-3 h-32 outline-none transition-colors duration-150 ease-in-out focus:border-blue-400 resize-none"
+						/> */}
