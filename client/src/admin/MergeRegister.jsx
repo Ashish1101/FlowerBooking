@@ -23,8 +23,8 @@ const MergeRegister = () => {
     return (
         <div className=" mx-auto mt-24 md:mt-28 w-64  md:w-80">
             <div className="bg-blue-800 flex flex-row justify-evenly" >
-               <button className={`w-1/2 h-8 focus:outline-none shadow-lg ${bgColor ? 'bg-white': 'bg-indigo-400'}`} onClick={() => {setActive('register'); setBgColor(!bgColor)}}>Sign Up</button>
-               <button className={` w-1/2 h-8 focus:outline-none shadow-lg ${bgColor ? 'bg-indigo-400': 'bg-white'}`} onClick={() => {setActive('login'); setBgColor(!bgColor)}}>Sign In</button>
+               <button className={`w-1/2 h-8 focus:outline-none shadow-sm   ${bgColor ? 'bg-white': 'bg-indigo-400'}`} onClick={() => {setActive('register'); setBgColor(!bgColor)}}>Sign Up</button>
+               <button className={` w-1/2 h-8 focus:outline-none shadow-sm   ${bgColor ? 'bg-indigo-400': 'bg-white'}`} onClick={() => {setActive('login'); setBgColor(!bgColor)}}>Sign In</button>
             </div>
             {active === 'register' ? (<Register />) : ''}
             {active === 'login' ? (<Login />) : ''}
