@@ -32,8 +32,8 @@ const Login = () => {
     } ,[admin.error , MySwal])
 
     return (
-        <div className=" shadow-2xl rounded-b-lg bg-indigo-400  mx-auto w-64 md:w-80 container flex flex-col">
-            <h3 className="text-center font-semibold text-3xl my-2 text-white">Login</h3>
+        <div className=" shadow rounded-b-lg mx-auto w-64 md:w-80 container flex flex-col">
+            <h3 className="text-center font-semibold text-3xl text-purple-400 my-2">Login</h3>
             <div className="mx-auto">
                 <Formik
                 initialValues={{
@@ -50,7 +50,7 @@ const Login = () => {
                       dispatch(loginAdmin(values));
                 }}
                 >
-                <Form className="mx-2">
+                <Form className="mx-2 md:w-64 w-full">
                 
                    <MyTextInput
                   name="email"
