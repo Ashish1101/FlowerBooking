@@ -13,7 +13,8 @@ const initialState = {
    isAdded: false,
    successMessage : '',
    loading : false,
-   error : null
+   error : null,
+   singleProduct : null
 }
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -59,8 +60,8 @@ export default (state = initialState ,action) => {
         case UPDATE_PRODUCT:
             return {
                 ...state,
-                successMessage : action.payload,
-                loading : true
+                successMessage : action.payload.successMessage,
+                singleProduct : action.payload.product
             }
         default:
             return state
