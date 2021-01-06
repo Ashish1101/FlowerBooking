@@ -19,7 +19,7 @@ const AddProduct = () => {
         //eslint-disable-next-line
     }, [])
 	return (
-		<div className='w-full h-screen text-center space-y-16'>
+		<div className='w-full h-screen mx-auto md:w-4/5 text-center space-y-12'>
 			<h3>Add Product</h3>
 			<div>
 				<Formik
@@ -50,7 +50,7 @@ const AddProduct = () => {
 						placeholder="Enter product details"
 						
 						 />
-						<div className='flex md:w-11/12 mx-auto w-48  md:mx-2 my-4 items-center bg-grey-lighter'>
+						<div className='flex w-full   my-4 items-center '>
 							<label className=' md:w-full w-full flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-white'>
 								<svg
 									className='w-8 h-8'
