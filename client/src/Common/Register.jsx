@@ -31,8 +31,8 @@ const Register = () => {
     //     toast.error(admin.error.message)
     // }
     return (
-        <div className=" shadow-2xl rounded-b-lg bg-indigo-400  mx-auto w-64 md:w-80  container flex flex-col">
-            <h3 className="text-center font-semibold text-3xl my-2 text-white">Register</h3>
+        <div className=" shadow rounded-b-lg  mx-auto w-64 md:w-80  container flex flex-col">
+            <h3 className="text-center font-semibold text-3xl my-2  text-purple-700">Register</h3>
             <div className="mx-auto">
                 <Formik
                 initialValues={{
@@ -54,7 +54,7 @@ const Register = () => {
                     //   alert(JSON.stringify(values , null , 2))
                 }}
                 >
-                <Form className="mx-2">
+                <Form className="mx-2 md:w-64 w-full">
                   <MyTextInput
                   name="name"
                   type="text"
