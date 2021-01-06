@@ -1,19 +1,13 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import {Formik , Form} from 'formik'
 import MyTextInput from '../../Common/MyTextInput'
 import Button from './Button'
 import MyTextArea from '../../Common/MyTextArea'
-import {updateProduct } from '../../Store/actions/productAction'
-import {useDispatch  , useSelector} from 'react-redux'
 
-const EditProduct = ({name , image, price , id , details}) => {
-    // const dispatch = useDispatch();
-    // @ts-ignore
+
+
+const EditProduct = ({name , image, price , id , details , updateItem}) => {
     
-    // useEffect(() => {
-
-    // })
-  
     return (
         <div className="md:flex md:flex-row flex-col ml-4">
             <div className="md:w-40 md:h-64 md:mr-4 w-full h-36 mb-4 bg-gray-400">
@@ -28,7 +22,8 @@ const EditProduct = ({name , image, price , id , details}) => {
             }}
             onSubmit={(values) => {
                 alert(JSON.stringify(values , null , 2));
-                // dispatch(updateProduct(id , values))
+                updateItem(id , values)
+                
             }}
             >
             <Form className="flex flex-col">

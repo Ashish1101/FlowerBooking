@@ -1,10 +1,11 @@
 import React  from 'react'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
-import { deleteProduct} from '../../Store/actions/productAction'
+import { deleteProduct, updateProduct} from '../../Store/actions/productAction'
 import {useDispatch , useSelector} from 'react-redux'
 import Button from './Button'
 import EditProduct from './EditProduct'
+import toast from 'react-hot-toast'
 
 
 
@@ -14,6 +15,8 @@ const Card = ({name , img , price , id , details}) => {
     const product = useSelector((state) => state.products);
     const dispatch = useDispatch()
     console.log(product.loading)
+
+   
     
     const MySwal = withReactContent(Swal);
     const deleteItem = () => {
@@ -45,17 +48,20 @@ const Card = ({name , img , price , id , details}) => {
           })
     }
 
-    
+    const updateItem = (ids, value) => {
+        dispatch(updateProduct(ids , value))
+        toast.success('product updated successfully')
+    }
 
     const editProduct = () => {
       console.log('i am edited')
       MySwal.fire({
-        html:<EditProduct name={name} price={price} id={id} image={img} details={details} />,
+        html:<EditProduct name={name} price={price} updateItem={updateItem} id={id} image={img} details={details} />,
         showCloseButton: true,
         showConfirmButton : false,
         customClass:'swal-wide',
         imageAlt: 'A tall image'
-      })
+      });
     }
     return (
         <div className="glass hover:shadow-2xl my-4 mx-4 delay-150 md:w-54 md:h-64 h-44  flex flex-col md:my-2 md:mx-2 justify-between   transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">

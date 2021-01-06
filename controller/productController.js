@@ -129,7 +129,7 @@ export const updateById = async (req, res, next) => {
 
            res.status(200).json({
                successMessage:"Product Update Successfully",
-               product : product
+               product
            })
        }
    } catch (err) {
