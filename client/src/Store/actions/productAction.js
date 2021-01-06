@@ -2,7 +2,9 @@ import {
 	ADD_PRODUCT,
 	ALL_PRODUCTS,
 	DELETE_PRODUCT,
+
 	PRODUCT_FAIL,
+
     UPDATE_PRODUCT,
 } from "../types";
 
@@ -79,20 +81,21 @@ export const deleteProduct = (id) => async (dispatch) => {
 
 //update product by id
 
-export const updateProduct = (data, id) => async (dispatch) => {
+export const updateProduct = (id , data) => async dispatch => {
 	try {
 		const token = localStorage.getItem("token");
 		const config = {
 			headers: {
 				"x-auth-token": `${token}`,
-				"Content-Type": "application/json",
 			},
 		};
-        const res = await axios.put(`/product/updateProduct/${id}`, data, config);
+		const res = await axios.put(`/product/updateProduct/${id}`, data, config);
+		console.log('id ' , id);
+		console.log('values ' , data)
         dispatch({
             type : UPDATE_PRODUCT,
-            payload : res.data.successMessage
-        })
+            payload : res.data
+		})
 	} catch (err) {
         console.log(err.response);
         dispatch({
