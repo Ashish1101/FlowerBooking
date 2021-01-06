@@ -18,7 +18,7 @@ const UpdateForm = () => {
 	return (
 		<div className='text-center space-y-16'>
 			<h3>Update Details</h3>
-			<div className="container pl-8">
+			<div className=" md:mx-auto w-4/5">
                 <Formik
                 initialValues={{
                     name:admin.admin.name || '',
@@ -42,7 +42,7 @@ const UpdateForm = () => {
                   toast.success('Profile Updated')
                 }}
                 >
-                    <Form className="flex flex-wrap">
+                    <Form className="md:mr-4">
                         
                         <MyTextInput
                         type="text"
@@ -73,7 +73,7 @@ const UpdateForm = () => {
                         name="address"
                         placeholder="Enter Address" />
 
-                    <button type="submit" className="w-11/12 ml-4 rounded-2xl mt-8 h-8 focus:outline-none bg-gradient-to-r from-green-600 to-white hover:from-purple-500 hover:to-white outline-none ">Submit</button>
+                    <button type="submit" className="md:w-full w-full  rounded-2xl mt-2 h-8 focus:outline-none bg-gradient-to-r from-green-600 to-white hover:from-purple-500 hover:to-white outline-none ">Submit</button>
                    </Form>
                 </Formik>
 			</div>

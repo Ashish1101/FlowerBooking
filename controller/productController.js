@@ -4,7 +4,7 @@ import Seller from '../models/Seller.js'
 let error = new Error();
 
 
-
+//done
 export const addProduct = async (req , res , next) => {
    try {
        const seller = await Seller.findById(req.user);
@@ -152,8 +152,8 @@ export const AllProducts = async (req, res, next) => {
         }
         // @ts-ignore
         if(seller && seller.isAdmin) {
-            const products = await Seller.find().populate('products').select('-password');
-            res.status(200).json(products);
+            const products = await Seller.find().populate('products').select('-password -name -email -__v -date -address -isAdmin -mobile');
+            res.status(200).json({products});
         }
     } catch (err) {
         console.log(err);

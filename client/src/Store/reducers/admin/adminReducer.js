@@ -8,7 +8,8 @@ import {
     LOGOUT,
     LOADING,
     UNLOADING,
-    DELETE_ADMIN
+    DELETE_ADMIN,
+    RESET_STATE
 } from '../../types'
 
 
@@ -88,6 +89,11 @@ export default (state = initialState , action) => {
                 error: null,
                 
                 successMessage : action.payload
+            }
+        case RESET_STATE:
+            return {
+                admin : null,
+                error : null
             }
        
          default:

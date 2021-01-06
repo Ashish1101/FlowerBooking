@@ -17,3 +17,9 @@ export const DELETE_ADMIN = "DELETE_ADMIN"
 //products
 export const ADD_PRODUCT = "ADD_PRODUCT"
 export const PRODUCT_FAIL = "PRODUCT_FAIL"
+export const ALL_PRODUCTS = "ALL_PRODUCTS"
+export const DELETE_PRODUCT = "DELETE_PRODUCT"
+export const UPDATE_PRODUCT = "UPDATE_PRODUCT"
+
+//extra
+export const RESET_STATE = "RESET_STATE"

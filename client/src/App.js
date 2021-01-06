@@ -6,6 +6,7 @@ import {BrowserRouter as Router , Route , Switch} from 'react-router-dom'
 import MergeRegister from './admin/MergeRegister'
 import {store , persistor} from './Store/store'
 import PrivateRoute from './Common/PrivateRoute'
+import './App.css'
 import {Toaster} from 'react-hot-toast'
 function App() {
   return (

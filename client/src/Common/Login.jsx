@@ -4,7 +4,7 @@ import {Form , Formik} from 'formik';
 import * as yup from 'yup'
 import {loginAdmin} from '../Store/actions/adminActions'
 import {useDispatch , useSelector } from 'react-redux'
-import toast from 'react-hot-toast'
+// import toast from 'react-hot-toast'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
@@ -18,7 +18,10 @@ const Login = () => {
 
     useEffect(() => {
         if(admin.error) {
+         //we can also use toast
         //    toast.error(admin.error.message)
+
+        //Sweet alert for better UI
         MySwal.fire({
             icon: 'error',
             title: 'Oops...',
@@ -26,7 +29,7 @@ const Login = () => {
           })
         }
         
-    } ,[admin.error])
+    } ,[admin.error , MySwal])
 
     return (
         <div className=" shadow-2xl rounded-b-lg bg-indigo-400  mx-auto w-64 md:w-80 container flex flex-col">

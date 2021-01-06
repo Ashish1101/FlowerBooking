@@ -6,9 +6,11 @@ const MyTextArea = ({ ...props}) => {
     const [field , meta] = useField(props)
     const [active , setActive] = useState(false)
     return (
-      <div onClick={() => setActive(!active)} className="flex flex-col mb-6 rounded-full md:w-11/12 mx-auto pl-1 w-48 ">
+      <div onClick={() => setActive(!active)} className="flex flex-col md:my-2 rounded-full md:w-72 pl-1 w-full ">
        <textarea 
-       className= {`${active ? 'shadow-inner' : 'shadow-md'} rounded-lg md:mx-2 focus:outline-none md:w-11/12 mx-auto pl-1 w-48 shadow-md resize`}
+      
+       rows={3}
+       className= {`${active ? 'border-opacity-100' : 'border-opacity-50'} border border-2 border-purple-400 rounded-lg  focus:outline-none md:72  pl-1 w-full shadow-md resize`}
        {...field}
        {...props}
        

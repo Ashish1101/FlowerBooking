@@ -157,6 +157,8 @@ export const userProfile = async (req , res , next) => {
 // @ts-ignore
 // @ts-ignore
 // @ts-ignore
+
+//this one for company
 export const getUserById = async (req, res , next) => {
     try {
         const user = await Seller.findById(req.params.id).select('-password');

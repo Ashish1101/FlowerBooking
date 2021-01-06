@@ -15,6 +15,7 @@ import { logoutAdmin} from '../Store/actions/adminActions'
 import Button from '../Common/Button'
 import {  IoBagAddSharp } from "react-icons/io5";
 import AddProduct from './Product/AddProduct'
+import {allProducts} from '../Store/actions/productAction'
 const Dashboard = () => {
     // const [active , setActive] = useState(false)
     const [curretDiv , setCurrentDiv] = useState("first")
@@ -34,6 +35,11 @@ const Dashboard = () => {
     
         //eslint-disable-next-line
     }, [])
+
+    useEffect(() => {
+        dispatch(allProducts())
+        //eslint-disable-next-line
+    },[])
 
     return (
         <div className="container mx-auto rounded-t-3xl  rounded-b-3xl my-2 h-screen flex flex-row shadow-2xl bg-gradient-to-tl from-flamingo-300 via-cerulean-200 to-blush-300 ">

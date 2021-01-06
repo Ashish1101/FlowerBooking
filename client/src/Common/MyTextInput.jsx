@@ -6,11 +6,12 @@ const MyTextInput = ({ ...props}) => {
     const [field , meta] = useField(props)
     const [active , setActive] = useState(false)
     return (
-      <div onClick={() => setActive(!active)} className="flex flex-col mb-6 rounded-full">
+      <div onClick={() => setActive(!active)} className="flex flex-col md:my-4 my-2 rounded-full w-full">
        <input 
-       className= {`text-sm w-48 mx-auto md:w-72 ${active ? 'shadow-inner' : 'shadow-md'} md:mx-2 pl-2 outline-none focus:ring-1 ring-white placeholder-purple-400 placeholder-opacity-60  h-8 rounded-lg  text-gray-800`}
+       className= {`text-sm w-full  md:w-full ${active ? 'border-opacity-100' : 'border-opacity-50'} border  pl-2 outline-none  placeholder-purple-400 placeholder-opacity-60  h-8 rounded-lg  text-gray-800 border-purple-400`}
        {...field}
        {...props}
+    
        
         />
         {meta.touched && meta.error ? (

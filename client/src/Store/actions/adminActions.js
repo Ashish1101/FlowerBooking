@@ -8,6 +8,7 @@ import {
     LOADING,
     UNLOADING,
     DELETE_ADMIN,
+    RESET_STATE,
 } from '../types';
 
 import axios from 'axios'
@@ -38,6 +39,11 @@ export const registerAdmin = (data) => async dispatch => {
             type : CREDENTIALS_FAIL,
             payload : err.response.data
         })
+        setTimeout(() => {
+            dispatch({
+                type : RESET_STATE
+            })
+        } , 500)
     }
 }
 
@@ -67,6 +73,11 @@ export const loginAdmin = (data) => async dispatch => {
             type : CREDENTIALS_FAIL,
             payload : err.response.data
         })
+        setTimeout(() => {
+            dispatch({
+                type : RESET_STATE
+            })
+        } , 500)
     }
 }
 
@@ -111,6 +122,11 @@ export const logoutAdmin = () => async dispatch => {
         dispatch({
             type: CREDENTIALS_FAIL
         })
+        setTimeout(() => {
+            dispatch({
+                type : RESET_STATE
+            })
+        } , 500)
     }
 }
 
@@ -132,6 +148,15 @@ export const deleteUser = (id) => async dispatch => {
             type : CREDENTIALS_FAIL,
             payload : err.response.data
         })
+        /* setting the time out function
+        so that if error occur than this function call 
+        the RESET_STATE reducer to reset the state back to initial
+          */
+        setTimeout(() => {
+            dispatch({
+                type : RESET_STATE
+            })
+        } , 500)
     }
 }
 
